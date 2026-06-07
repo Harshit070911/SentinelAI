@@ -1,0 +1,167 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #0A0A0B;
+  --color-surface: #131314;
+  --color-surface-dim: #131314;
+  --color-surface-bright: #3a393a;
+  --color-surface-container-lowest: #0e0e0f;
+  --color-surface-container-low: #1c1b1c;
+  --color-surface-container: #201f20;
+  --color-surface-container-high: #2a2a2b;
+  --color-surface-container-highest: #353436;
+  --color-on-background: #e5e2e3;
+  --color-on-surface: #e5e2e3;
+  --color-on-surface-variant: #c3c6d7;
+  --color-inverse-surface: #e5e2e3;
+  --color-inverse-on-surface: #313031;
+  --color-outline: #8d90a0;
+  --color-outline-variant: #434655;
+  
+  --color-primary: #b4c5ff;
+  --color-on-primary: #002a78;
+  --color-primary-container: #2563eb;
+  --color-on-primary-container: #eeefff;
+  
+  --color-secondary: #ffb3ad;
+  --color-on-secondary: #68000a;
+  --color-secondary-container: #a40217;
+  --color-on-secondary-container: #ffaea8;
+  
+  --color-tertiary: #ffb95f;
+  --color-on-tertiary: #472a00;
+  --color-tertiary-container: #996100;
+  --color-on-tertiary-container: #ffeedd;
+  
+  --color-error: #ffb4ab;
+  --color-on-error: #690005;
+  --color-error-container: #93000a;
+  --color-on-error-container: #ffdad6;
+}
+
+/* Custom premium scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-surface-variant);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-outline-variant);
+}
+
+body {
+  background-color: #0A0A0B;
+  color: #e5e2e3;
+  font-family: var(--font-geist-sans), sans-serif;
+  overflow-x: hidden;
+}
+
+/* Glassmorphism utilities */
+.glass-panel {
+  background: rgba(28, 27, 28, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.glass-modal {
+  background: rgba(20, 19, 20, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* Critical emergency glow and pulses */
+.pulse-critical {
+  animation: pulse-red 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse-red {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+    box-shadow: 0 0 10px rgba(255, 180, 171, 0.5), inset 0 0 10px rgba(255, 180, 171, 0.5);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.03);
+    box-shadow: 0 0 20px rgba(255, 180, 171, 0.8), inset 0 0 20px rgba(255, 180, 171, 0.8);
+  }
+}
+
+.glow-blue {
+  box-shadow: 0 0 15px rgba(37, 99, 235, 0.25);
+}
+
+.glow-orange {
+  box-shadow: 0 0 15px rgba(245, 158, 11, 0.25);
+}
+
+.glow-red {
+  box-shadow: 0 0 15px rgba(239, 68, 68, 0.3);
+}
+
+/* Chart grid representation matching physical console dashboard */
+.chart-grid {
+  background-image: linear-gradient(rgba(67, 70, 85, 0.08) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(67, 70, 85, 0.08) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Leaflet Dark mode skin filter overlay */
+.leaflet-container {
+  background: #0A0A0B !important;
+  font-family: inherit !important;
+}
+
+.leaflet-tile-container {
+  /* Invert color to make it dark skin, shift hue to preserve blue/cyan lines, and adjust brightness */
+  filter: invert(100%) hue-rotate(180deg) brightness(85%) contrast(110%) saturate(60%);
+}
+
+/* Remove default Leaflet UI borders */
+.leaflet-bar {
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: none !important;
+  background: rgba(20, 19, 20, 0.85) !important;
+}
+
+.leaflet-bar a {
+  background: transparent !important;
+  color: #e5e2e3 !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+.leaflet-bar a:hover {
+  background: rgba(255, 255, 255, 0.05) !important;
+  color: #b4c5ff !important;
+}
+
+.leaflet-popup-content-wrapper {
+  background: rgba(20, 19, 20, 0.85) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  backdrop-filter: blur(12px);
+  color: #e5e2e3 !important;
+  border-radius: 0.75rem !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5) !important;
+}
+
+.leaflet-popup-tip {
+  background: rgba(20, 19, 20, 0.85) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+}
+
+/* Custom styling to hide scrollbars for timeline scroll components */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
