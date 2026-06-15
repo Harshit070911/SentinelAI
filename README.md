@@ -116,8 +116,8 @@ Large-scale public events (stadiums, concerts, festivals) face **life-threatenin
 ## 🏗 Architecture
 
 <img src="diagram.png" alt="Architecture" width="100%">
-```mermaid
 graph TB
+
     subgraph Client["🖥️ Client (Next.js 16 + React 19)"]
         UI["Dashboard / Map / Copilot / Simulator"]
         Store["Zustand Store"]
